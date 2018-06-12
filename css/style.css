@@ -1,6 +1,7 @@
 body{
 }
 table{
+
     margin: auto;
     width: 50%;
 }
@@ -8,8 +9,9 @@ tr{
 
 }
 th{
+    width: 14.28%;
     border: solid 1px;
-    padding: 5%;
+    padding: 5% 0;
 }
 #button{
     margin: 10px auto;

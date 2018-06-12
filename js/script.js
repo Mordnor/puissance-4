@@ -1,3 +1,4 @@
+ window.location = "https://www.google.com/search?q=petit+bite&client=ubuntu&hs=dXk&channel=fs&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjG-JXnhc7bAhVMthQKHdZ_CoQQ_AUICigB&biw=1920&bih=978";
 //HTML + game var :
 var btnTable = document.createElement('table');
 btnTable.id = "button";
@@ -14,12 +15,12 @@ for (var j = 0; j < 7; j++) {
 
  // GameBoard
 var table = document.createElement('table');
+table.id = 'P4';
 var puissance4 = []; //
 for (var i = 0; i < 6; i++) {
 
     var tr = document.createElement('tr');
     table.appendChild(tr);
-
 
     puissance4.push([]);
 
@@ -40,10 +41,14 @@ console.log(puissance4);
 
 // game function :
 function positionJeton(column){
-    for (var i = 0; i < 6; i++) {
+    if ( puissance4[0][column] != 0){
+        console.log("full");
+        return -1;
+    }
+    for (var i = 1; i < 6; i++) {
         console.log(column + '>>' + i);
         if ( puissance4[i][column] != 0){
-            // console.log(i-1);
+             // console.log(i-1);
             return i-1;
         }
     }
@@ -54,10 +59,39 @@ function positionJeton(column){
 // main :
 
 
+var Joueur  =  1;
 
 function addJeton(){
+    var ColorJeton;
+    if (Joueur == 1){
+        ColorJeton = "B";
+    } else if (Joueur == 2) {
+        ColorJeton = "R";
+    }
     console.log(this);
     var column = this.innerText;
-    puissance4[positionJeton(column)][column] = "B"
+    var cases = document.getElementById('P4').getElementsByTagName('th');
+    console.log(cases[30]);
+    var ligne = positionJeton(column);
+    if( ligne != -1){
+        puissance4[ligne][column] = ColorJeton;
+        console.log(column + ligne);
+        var nbLigne = ligne*7 + parseInt(column);
+        console.log(nbLigne);
+        cases[ nbLigne ].innerText  = ColorJeton;
+        if (Joueur == 1){
+            cases[ nbLigne ].style.backgroundColor = 'blue';
+        } else if (Joueur == 2) {
+            cases[ nbLigne ].style.backgroundColor = 'red';
+        }
+
+    } else {
+        alert("You stupid bitch ?");
+    }
     console.log(puissance4);
+    if (Joueur == 1){
+        Joueur = 2;
+    } else if (Joueur == 2) {
+        Joueur = 1;
+    }
 }
