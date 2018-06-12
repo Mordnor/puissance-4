@@ -1,4 +1,4 @@
- window.location = "https://www.google.com/search?q=petit+bite&client=ubuntu&hs=dXk&channel=fs&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjG-JXnhc7bAhVMthQKHdZ_CoQQ_AUICigB&biw=1920&bih=978";
+
 //HTML + game var :
 var btnTable = document.createElement('table');
 btnTable.id = "button";
