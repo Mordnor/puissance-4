@@ -56,6 +56,27 @@ function positionJeton(column){
     return 5;
 }
 
+function victory(ligne, column, ColorJeton) {
+
+    // diagonal \
+    if (puissance4[ligne-1][column-1] == ColorJeton || puissance4[ligne+1][column+1] == ColorJeton  ) {
+    }
+
+    //diagonal /
+    if (puissance4[ligne-1][column+1]== ColorJeton || puissance4[ligne+1][column-1] == ColorJeton ) {
+
+    }
+
+    // Ligne horizontal
+    if (puissance4[ligne][column -1] == ColorJeton || puissance4[ligne][column+1] == ColorJeton  ) {
+
+    }
+    // ligne vertical
+    if (puissance4[ligne-1][column] == ColorJeton || puissance4[ligne+1][column] == ColorJeton  ) {
+
+    }
+}
+
 // main :
 
 
